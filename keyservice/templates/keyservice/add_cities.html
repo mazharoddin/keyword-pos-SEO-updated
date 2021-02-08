@@ -1,0 +1,8 @@
+{% for city in cities %}
+<li>
+    <label for="{{city.name}}">
+        <input type="checkbox" name="cities" value="{{city.id}}" id="{{ city.name }}">
+        {{city.name}}
+    </label>
+</li>
+{% endfor %}

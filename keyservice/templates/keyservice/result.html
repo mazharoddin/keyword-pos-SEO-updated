@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+<a class="nav-link text-white bg-gradient-dark " href="/">Home </a>
+<a class="nav-link text-white bg-gradient-dark active" href="/search/">Find Position</a>
+<a class="nav-link text-white bg-gradient-dark " href="/map-search/">Map Position </a>
+<a class="nav-link text-white bg-gradient-dark" href="/report/">Report</a>
+<a class="nav-link text-white bg-gradient-dark" href="/graph-report/">Graph Report</a>
+<a class="nav-link text-white bg-gradient-dark" href="/key-to-url/">Find Url</a>
+{% endblock %}
+
+{% block content %}
+{% if error %}
+<p>{{error}}</p>
+{% else %}
+{% for pos in positions %}
+<p>{{ pos }}</p>
+{% endfor %}
+{% endif %}
+{% endblock %}

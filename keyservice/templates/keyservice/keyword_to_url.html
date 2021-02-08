@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+<!-- {% load static %} -->
+{% block navigation %}
+<a class="nav-link text-white bg-gradient-dark " href="/">Home </a>
+<a class="nav-link text-white bg-gradient-dark" href="/search/">Find Position</a>
+<a class="nav-link text-white bg-gradient-dark" href="/map-search/">Map Position </a>
+<a class="nav-link text-white bg-gradient-dark" href="/report/">Report</a>
+<a class="nav-link text-white bg-gradient-dark" href="/graph-report/">Graph Report</a>
+<a class="nav-link text-white bg-gradient-dark active" href="/key-to-url/">Find Url</a>
+{% endblock %}
+
+
+{% block content %}
+<div id="form-area">
+    <form method="post" action="/key-to-url/" id="urlForm">
+        <fieldset class="border p-2">
+            <legend>Keyword to URL</legend>
+            {% csrf_token %}
+            {% for field in form %}
+            <div class=" form-group">
+                <div class="row">
+                    <div class="col-md-2">
+                        {{ field.label_tag }}
+                        {% if field.help_text %}
+                        <sup>{{ field.help_text }}</sup>
+                        {% endif %}
+                        {{ field.errors }}
+                    </div>
+                    <div class="col-md-10 pull-left">
+                        {{ field }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="row">
+                <div class="offset-md-2">
+                    <input type="submit" value="Submit" class="btn btn-primary  mr-1">
+                    <input type="submit" value="Copy Text" class="btn btn-primary" onclick="copyText()">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}
+
+
+{% block scriptjs %}
+<script>
+    function copyText() {
+        var urlText = document.getElementById("id_url_text")
+        urlText.select()
+        document.execCommand("copy")
+        alert("Text Copied")
+        clearText()
+    }
+
+    function clearText() {
+        document.getElementById("id_keyword").value = ""
+        document.getElementById("id_url_text").value = ""
+    }
+</script>
+{% endblock %}

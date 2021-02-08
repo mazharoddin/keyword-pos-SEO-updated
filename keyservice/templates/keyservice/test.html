@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block navigation %}
+<a class="nav-link text-white bg-gradient-dark " href="/">Home </a>
+<a class="nav-link text-white bg-gradient-dark " href="/search/">Find Position</a>
+<a class="nav-link text-white bg-gradient-dark " href="/map-search/">Map Position </a>
+<a class="nav-link text-white bg-gradient-dark" href="/report/">Report</a>
+<a class="nav-link text-white bg-gradient-dark" href="/graph-report/">Graph Report</a>
+<a class="nav-link text-white bg-gradient-dark" href="/key-to-url/">Find Url</a>
+{% endblock %}
+
+{% block content %}
+<div id="loading">
+
+</div>
+
+<form action='' method='post' , enctype=multipart/form-data id="myform">
+    {% csrf_token %}
+    <input type="file" name="image" id="image">
+</form>
+<button id="submit-image">upload image</button>
+{% endblock %}
+
+{% block scriptjs %}
+<script>
+    // $("#id_site").change(function () {
+    //     console.log("ajax");
+    //     const site_id = $(this).val();
+    //     $.ajax({
+    //         url: "{% url 'get-cities' %}",
+    //         data: { "site_id": site_id },
+    //         success: function (data) {
+    //             $("#id_cities").html(data)
+    //         }
+    //     });
+    // });
+
+    // $("#id_file").on('input', function () {
+    //     console.log("ajax");
+    //     const img = $(this).val();
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: "{% url 'barcode' %}",
+    //         data: { "img": img },
+    //         success: function (jsondata) {
+    //             console.log(jsondata);
+    //         }
+    //     });
+    // });
+
+    // $("#onclick").click(function () {
+    //     console.log("ajax");
+    //     const img = $("#barcode").val();
+    //     console.log("img", img);
+    //     $.ajax({
+    //         url: "{% url 'loading' %}",
+    //         data: { "site_id": site_id },
+    //         success: function () {
+    //             $("#loading").html()
+    //         }
+    //     });
+    // }); 
+
+    $("#submit-image").click(function () {
+        var form_data = new FormData();
+        form_data.append('img', $('#myform').get(0));
+        console.log($('#myform').get(0));
+        $.ajax({
+            url: "http://keywordpos.zunamelt.com/barcode/",
+            data: form_data,
+            type: "POST",
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                let jdata = $.parseJSON(data);
+                console.log(jdata);
+                alert("success")
+            },
+            error: function (xhr) {
+                alert(xhr.statusText)
+            },
+            params: {
+                'csrf_token': '{{ csrf_token }}',
+                'csrf_name': 'csrfmiddlewaretoken',
+                'csrf_xname': 'X-CSRFToken',
+            }
+        });
+    });
+
+</script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- {% load static %} -->
+{% block nav %}
+<nav>
+    <nav>
+        <div class="topnav">
+            <a href="/" class="active">Home</a>
+            <a href="/search/">Find Position</a>
+            <a href="/map-search/">Map Position </a>
+            <a href="/report/">Report</a>
+            <a href="/graph-report">Graph Report</a>
+        </div>
+    </nav>
+</nav>
+{% endblock %}
+{% block content %}
+<form action="/suggestion/" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% endblock %}

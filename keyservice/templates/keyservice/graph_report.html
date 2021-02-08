@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+{% block navigation %}
+<a class="nav-link text-white bg-gradient-dark " href="/">Home </a>
+<a class="nav-link text-white bg-gradient-dark" href="/search/">Find Position</a>
+<a class="nav-link text-white bg-gradient-dark" href="/map-search/">Map Position </a>
+<a class="nav-link text-white bg-gradient-dark" href="/report/">Report</a>
+<a class="nav-link text-white bg-gradient-dark active" href="/graph-report/">Graph Report</a>
+<a class="nav-link text-white bg-gradient-dark" href="/key-to-url/">Find Url</a>
+{% endblock %}
+
+{% block content %}
+<div>
+
+</div>
+
+<form action='' method='post'>
+    <fieldset class="border p-2">
+        <legend>Graph Report:</legend>
+        {% csrf_token %}
+        {% for field in form %}
+        <div class=" form-group">
+            <div class="row">
+                <div class="col-md-2">
+                    {{ field.label_tag }}
+                    {% if field.help_text %}
+                    <sup>{{ field.help_text }}</sup>
+                    {% endif %}
+                    {{ field.errors }}
+                </div>
+                <div class="col-md-10 pull-left">
+                    {{ field }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="row">
+            <div class="offset-md-2">
+                <input type="submit" value="generate" class="btn btn-primary" id="onclick"></div>
+        </div>
+
+    </fieldset>
+</form>
+{% endblock %}
+
+{% block scriptjs %}
+<script>
+    // $("#onclick").click(function () {
+    //     $.ajax({
+    //         url: "{% url 'loading' %}",
+    //         data: { "site_id": site_id },
+    //         success: function () {
+    //             $("#loading").html()
+    //         }
+    //     });
+    // }); 
+</script>
+{% endblock %}

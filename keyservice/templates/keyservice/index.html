@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+<!-- {% load static %} -->
+{% block navigation %}
+<a class="nav-link text-white bg-gradient-dark active" href="/">Home </a>
+<a class="nav-link text-white bg-gradient-dark" href="/search/">Find Position</a>
+<a class="nav-link text-white bg-gradient-dark" href="/map-search/">Map Position </a>
+<a class="nav-link text-white bg-gradient-dark" href="/report/">Report</a>
+<a class="nav-link text-white bg-gradient-dark" href="/graph-report/">Graph Report</a>
+<a class="nav-link text-white bg-gradient-dark" href="/key-to-url/">Find Url</a>
+{% endblock %}
+
+{% block content %}
+
+{% if status%}
+<h4 class="p-2">Recent keyword positions of websites</h4>
+<table class="table">
+    <thead class="thead-light ">
+        <tr>
+            <th>Date</th>
+            <th>URL</th>
+            <th>Keywords</th>
+            <th>City</th>
+            <th>Position</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for position in positions %}
+        <tr>
+            <td>{{position.date}}</td>
+            <td>{{position.url}}</td>
+            <td>{{position.key}}</td>
+            <td>{{position.city}}</td>
+            <td>{{position.position}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="m-5">
+    <h2>Welcome to Desss Inc</h2>
+</div>
+{% endif %}
+
+{% endblock %}

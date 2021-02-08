@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block staticlink %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css"> -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    {% endblock %}
+
+    {% block title %}
+    <title>Home</title>
+    {% endblock %}
+    <style>
+        .active {
+            background: #2a2b2b;
+            color: rgb(211, 195, 195);
+        }
+
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        #page-loader {
+            /* position: absolute; */
+            display: none;
+            /* left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px; */
+            /* background-color: rgb(178, 184, 178); */
+        }
+
+        #page-loader p {
+            text-align: center;
+        }
+
+        .centerimg {
+            /* margin: auto;
+            width: 50%; */
+            display: flex;
+            flex: 1;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            /* border: 3px solid green; */
+            height: 50vh;
+            /* padding: 10px; */
+        }
+
+        /* img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 40%;
+        } */
+
+        /* .bgcolor {
+            background-color: beige;
+        } */
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-md navbar-light fixed-top " style="background-color: #5a5c5a;">
+                <a class="navbar-brand" href="#">DESSS</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+
+                        {% block navigation %}
+                        <a class="nav-link text-white bg-dark" href="">Home </a>
+                        <a class="nav-link text-white bg-dark" href="/search/">Find Position</a>
+                        <a class="nav-link text-white bg-dark" href="/map-search/">Map Position </a>
+                        <a class="nav-link text-white bg-dark" href="/report/">Report</a>
+                        <a class="nav-link text-white bg-dark" href="/graph-report/">Graph Report</a>
+                        <a class="nav-link text-white bg-dark" href="/key-to-url/">Find Url</a>
+                        {% endblock %}
+
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+            <div class="m-5 pt-5 ">
+                <div class="bg-light">
+                    {% block content %}
+                    <div class="m-5 ">
+                        <h2>Welcome to DESSS</h2>
+                        <p>SEO Tool</p>
+                    </div>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    {% block scriptjs %}
+
+    {% endblock %}
+
+</html>

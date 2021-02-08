@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ {% if status %}
+    <form class="" action="/delete/" method="post">
+      {% csrf_token %}
+      <input type="submit" name="" value="Delete">
+    </form>
+ {% else %}
+    <p>Successfully deleted</p>
+ {% endif %}
+{% endblock %}

@@ -1,0 +1,243 @@
+WARNING 2020-09-29 12:47:28,946 log 11984 139841534310144 Method Not Allowed: /keyword-idea
+WARNING 2020-09-29 12:56:04,456 log 12935 140503023298304 Method Not Allowed: /keyword-idea
+WARNING 2020-10-20 02:23:20,205 log 18393 140692343609088 Not Found: /favicon.ico
+WARNING 2020-10-20 02:24:18,440 log 18393 140692343609088 Method Not Allowed: /signin
+WARNING 2020-10-20 02:25:22,089 log 18393 140691762038528 Not Found: /signin/
+WARNING 2020-10-20 02:26:04,459 log 18393 140691762038528 Not Found: /signin/
+WARNING 2020-10-20 02:28:18,494 log 18393 140692352001792 Not Found: /signin/
+WARNING 2020-10-20 02:33:49,392 log 19697 140364171937536 Not Found: /key
+WARNING 2020-10-20 02:34:05,878 log 19697 140364171937536 Method Not Allowed: /keyword-idea
+WARNING 2020-10-20 02:34:52,592 log 19697 140364171937536 Unauthorized: /keyword-idea
+ERROR 2020-10-20 02:38:39,241 log 19697 140364171937536 Internal Server Error: /keyword-idea
+Traceback (most recent call last):
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/googleads/common.py", line 992, in MakeSoapRequest
+    *packed_args, _soapheaders=soap_headers)['body']['rval']
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/zeep/proxy.py", line 45, in __call__
+    kwargs,
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/zeep/wsdl/bindings/soap.py", line 130, in send
+    return self.process_reply(client, operation_obj, response)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/zeep/wsdl/bindings/soap.py", line 195, in process_reply
+    return self.process_error(doc, operation)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/zeep/wsdl/bindings/soap.py", line 299, in process_error
+    detail=fault_node.find("detail"),
+zeep.exceptions.Fault: [RateExceededError <rateName=RATE_LIMIT, rateKey=null, rateScope=ACCOUNT, retryAfterSeconds=30>]
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/gopi/Desktop/dseotool/src/keyservice/api/views.py", line 26, in post
+    data = SearchVolumePuller.get_google_service(query)
+  File "/home/gopi/Desktop/dseotool/src/keyservice/api/google_keyword_idea_service.py", line 93, in get_google_service
+    targeting_keyword_idea = volume_puller.get_target_ideas(targeting_service, idea_key)
+  File "/home/gopi/Desktop/dseotool/src/keyservice/api/google_keyword_idea_service.py", line 55, in get_target_ideas
+    page = service_client.get(selector)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/googleads/common.py", line 1004, in MakeSoapRequest
+    e.detail, errors=error_list, message=e.message)
+googleads.errors.GoogleAdsServerFault: [RateExceededError <rateName=RATE_LIMIT, rateKey=null, rateScope=ACCOUNT, retryAfterSeconds=30>]
+ERROR 2020-10-20 02:43:23,695 log 20560 139948928399104 Internal Server Error: /token-info
+Traceback (most recent call last):
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/views/generic/base.py", line 71, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/rest_framework/views.py", line 505, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/rest_framework/views.py", line 465, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/rest_framework/views.py", line 476, in raise_uncaught_exception
+    raise exc
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/rest_framework/views.py", line 502, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/rest_framework/decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+  File "/home/gopi/Desktop/dseotool/src/keyservice/api/views.py", line 61, in user_info
+    {"user": request.user.username, "expires_in": expires_in(request.auth)}, status=HTTP_200_OK
+  File "/home/gopi/Desktop/dseotool/src/keyservice/api/authentication.py", line 12, in expires_in
+    time_elapsed = timezone.now() - token.created
+AttributeError: 'NoneType' object has no attribute 'created'
+WARNING 2020-10-20 02:44:39,811 log 20560 139948928399104 Unauthorized: /token-info
+WARNING 2020-10-20 02:44:51,222 log 20560 139948928399104 Unauthorized: /keyword-idea
+ERROR 2020-10-20 03:55:24,008 log 20560 139949105862400 Internal Server Error: /map-search/
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/urllib/request.py", line 1324, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/lib/python3.7/http/client.py", line 1244, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1290, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1239, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.7/http/client.py", line 966, in send
+    self.connect()
+  File "/usr/lib/python3.7/http/client.py", line 1407, in connect
+    server_hostname=server_hostname)
+  File "/usr/lib/python3.7/ssl.py", line 412, in wrap_socket
+    session=session
+  File "/usr/lib/python3.7/ssl.py", line 853, in _create
+    self.do_handshake()
+  File "/usr/lib/python3.7/ssl.py", line 1117, in do_handshake
+    self._sslobj.do_handshake()
+OSError: [Errno 0] Error
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/gopi/Desktop/dseotool/src/keyservice/views.py", line 91, in get_map_position
+    seq, name, both_key, keywordcity.city_id.name, keyword
+  File "/home/gopi/Desktop/dseotool/src/keyservice/utils.py", line 36, in _get_map_record
+    pos = _check_and_convert_position(get_map_result(name, key, city))
+  File "/home/gopi/Desktop/dseotool/src/keyservice/service.py", line 284, in get_map_result
+    map_page = get_next_page(base_url, soup)
+  File "/home/gopi/Desktop/dseotool/src/keyservice/service.py", line 265, in get_next_page
+    page = read_page(request)
+  File "/home/gopi/Desktop/dseotool/src/keyservice/service.py", line 226, in read_page
+    urlfile = req.urlopen(request)
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 1367, in https_open
+    context=self._context, check_hostname=self._check_hostname)
+  File "/usr/lib/python3.7/urllib/request.py", line 1326, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno 0] Error>
+ERROR 2020-10-20 05:24:56,264 log 20560 139949105862400 Internal Server Error: /map-search/
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/urllib/request.py", line 1324, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/lib/python3.7/http/client.py", line 1244, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1290, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1239, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.7/http/client.py", line 966, in send
+    self.connect()
+  File "/usr/lib/python3.7/http/client.py", line 938, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "/usr/lib/python3.7/socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/gopi/Desktop/dseotool/src/keyservice/views.py", line 91, in get_map_position
+    seq, name, both_key, keywordcity.city_id.name, keyword
+  File "/home/gopi/Desktop/dseotool/src/keyservice/utils.py", line 36, in _get_map_record
+    pos = _check_and_convert_position(get_map_result(name, key, city))
+  File "/home/gopi/Desktop/dseotool/src/keyservice/service.py", line 277, in get_map_result
+    page = read_page(request)
+  File "/home/gopi/Desktop/dseotool/src/keyservice/service.py", line 226, in read_page
+    urlfile = req.urlopen(request)
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 1352, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "/usr/lib/python3.7/urllib/request.py", line 1326, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -2] Name or service not known>
+ERROR 2020-10-20 06:55:15,478 log 3527 140510737696512 Internal Server Error: /map-search/
+Traceback (most recent call last):
+  File "/usr/lib/python3.7/urllib/request.py", line 1324, in do_open
+    encode_chunked=req.has_header('Transfer-encoding'))
+  File "/usr/lib/python3.7/http/client.py", line 1244, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1290, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1239, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/usr/lib/python3.7/http/client.py", line 1026, in _send_output
+    self.send(msg)
+  File "/usr/lib/python3.7/http/client.py", line 966, in send
+    self.connect()
+  File "/usr/lib/python3.7/http/client.py", line 938, in connect
+    (self.host,self.port), self.timeout, self.source_address)
+  File "/usr/lib/python3.7/socket.py", line 707, in create_connection
+    for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+  File "/usr/lib/python3.7/socket.py", line 748, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -2] Name or service not known
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/exception.py", line 34, in inner
+    response = get_response(request)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 115, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/gopi/Desktop/dseotool/venv/lib/python3.7/site-packages/django/core/handlers/base.py", line 113, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/gopi/Desktop/dseotool/src/keyservice/views.py", line 91, in get_map_position
+    seq, name, both_key, keywordcity.city_id.name, keyword
+  File "/home/gopi/Desktop/dseotool/src/keyservice/utils.py", line 36, in _get_map_record
+    pos = _check_and_convert_position(get_map_result(name, key, city))
+  File "/home/gopi/Desktop/dseotool/src/keyservice/service.py", line 277, in get_map_result
+    page = read_page(request)
+  File "/home/gopi/Desktop/dseotool/src/keyservice/service.py", line 226, in read_page
+    urlfile = req.urlopen(request)
+  File "/usr/lib/python3.7/urllib/request.py", line 222, in urlopen
+    return opener.open(url, data, timeout)
+  File "/usr/lib/python3.7/urllib/request.py", line 525, in open
+    response = self._open(req, data)
+  File "/usr/lib/python3.7/urllib/request.py", line 543, in _open
+    '_open', req)
+  File "/usr/lib/python3.7/urllib/request.py", line 503, in _call_chain
+    result = func(*args)
+  File "/usr/lib/python3.7/urllib/request.py", line 1352, in http_open
+    return self.do_open(http.client.HTTPConnection, req)
+  File "/usr/lib/python3.7/urllib/request.py", line 1326, in do_open
+    raise URLError(err)
+urllib.error.URLError: <urlopen error [Errno -2] Name or service not known>
