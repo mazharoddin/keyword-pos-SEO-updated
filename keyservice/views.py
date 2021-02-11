@@ -79,7 +79,7 @@ def get_map_position(request, *args, **kwargs):
                 whole_sleep_time = random.randint(147, 360)
                 for keywordcity in keywordcitys:
                     print(both_key, keywordcity.city_id.name)
-                    sleep_time = random.randint(18, 76)
+                    sleep_time = random.randint(26, 76)
                     if not _check_map_record(name, both_key, keywordcity.city_id.name):
                         time.sleep(whole_sleep_time)
                         data = _get_map_record(
